@@ -65,7 +65,7 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn text-xl text-purple-800"><img className="w-9" src={navIcon} alt="" /> HERO.IO</a>
+        <a className=" flex items-center gap-2 cursor-pointer text-xl text-purple-800"><img className="w-9" src={navIcon} alt="" /> HERO.IO</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>

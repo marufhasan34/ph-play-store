@@ -6,6 +6,8 @@ import { RouterProvider } from "react-router/dom";
 import RootLayout from "./Layout/RootLayout";
 import Apps from "./Pages/Apps/Apps";
 import InstallApps from "./Pages/InstallApps/InstallApps";
+import ErrorPage from "./Components/Shared/ErrorPage/ErrorPage";
+import HomePage from "./Pages/HomePage/HomePage";
 
 const router = createBrowserRouter([
   {
@@ -14,7 +16,8 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <h2>home page</h2>,
+        Component: HomePage,
+        loader: () => fetch('/data.json')
       },
       {
         path: "/apps",
@@ -25,7 +28,7 @@ const router = createBrowserRouter([
         Component: InstallApps,
       },
     ],
-    errorElement: <h2>this page is not found</h2>,
+    errorElement: <ErrorPage />,
   },
 ]);
 createRoot(document.getElementById("root")).render(
