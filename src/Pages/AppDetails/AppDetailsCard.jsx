@@ -7,11 +7,21 @@ import { toast } from "react-toastify";
 
 const AppDetailsCard = ({ expectedApp }) => {
   const { installApps, setInstallApps } = useContext(InstalledAppsContext);
+
   const handleInstallApp = () => {
+    const isAlreadyInstalled = installApps.find(
+      (app) => app.id === expectedApp.id
+    );
+
+    if (isAlreadyInstalled) {
+      toast.error(`${expectedApp.title} is already installed!`);
+      return;
+    }
+
     setInstallApps([...installApps, expectedApp]);
     toast.success(`${expectedApp.title} is installed!`);
   };
-  console.log(installApps)
+
   return (
     <div className="my-15 flex gap-10">
       <div className="bg-gray-200 p-8 rounded-2xl">

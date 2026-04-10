@@ -5,10 +5,8 @@ import AppDetailsCard from './AppDetailsCard';
 
 const AppDetails = () => {
     const {id} = useParams()
-    console.log(id)
      const { apps, loading } = UseApps();
      const expectedApp = apps.find(app => String(app.id) ===id);
-     console.log(expectedApp)
      if(loading){
         return(
             <div className="flex h-[60vh] justify-center items-center">
